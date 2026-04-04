@@ -1,0 +1,11 @@
+{
+    "values": [
+        "detector_rail",
+        "repeater",
+        "comparator",
+        "lever",
+        "#buttons",
+        "#pressure_plates",
+        "observer"
+    ]
+}

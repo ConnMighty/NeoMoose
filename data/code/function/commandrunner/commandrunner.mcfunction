@@ -13,56 +13,16 @@ execute if block ~1 ~ ~1 redstone_wire unless block ~1 ~ ~1 redstone_wire[power=
 execute if block ~-1 ~ ~-1 redstone_wire unless block ~-1 ~1 ~-1 redstone_wire[power=0] run tag @s add powered
 execute if block ~1 ~ ~-1 redstone_wire unless block ~1 ~ ~-1 redstone_wire[power=0] run tag @s add powered
 execute if block ~-1 ~ ~1 redstone_wire unless block ~-1 ~ ~1 redstone_wire[power=0] run tag @s add powered
-execute if block ~ ~1 ~ detector_rail[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ detector_rail[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ detector_rail[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ detector_rail[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 detector_rail[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 detector_rail[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 detector_rail[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 detector_rail[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 detector_rail[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 detector_rail[powered=true] run tag @s add powered
-execute if block ~ ~1 ~ repeater[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ repeater[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ repeater[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ repeater[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 repeater[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 repeater[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 repeater[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 repeater[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 repeater[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 repeater[powered=true] run tag @s add powered
-execute if block ~ ~1 ~ comparator[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ comparator[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ comparator[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ comparator[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 comparator[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 comparator[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 comparator[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 comparator[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 comparator[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 comparator[powered=true] run tag @s add powered
-execute if block ~ ~1 ~ lever[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ lever[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ lever[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ lever[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 lever[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 lever[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 lever[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 lever[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 lever[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 lever[powered=true] run tag @s add powered
-execute if block ~ ~1 ~ #buttons[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ #buttons[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ #buttons[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ #buttons[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 #buttons[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 #buttons[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 #buttons[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 #buttons[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 #buttons[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 #buttons[powered=true] run tag @s add powered
+execute if block ~ ~1 ~ #lespowerables[powered=true] run tag @s add powered
+execute if block ~ ~2 ~ #lespowerables[powered=true] run tag @s add powered
+execute if block ~1 ~ ~ #lespowerables[powered=true] run tag @s add powered
+execute if block ~-1 ~ ~ #lespowerables[powered=true] run tag @s add powered
+execute if block ~ ~ ~1 #lespowerables[powered=true] run tag @s add powered
+execute if block ~ ~ ~-1 #lespowerables[powered=true] run tag @s add powered
+execute if block ~1 ~ ~1 #lespowerables[powered=true] run tag @s add powered
+execute if block ~-1 ~ ~-1 #lespowerables[powered=true] run tag @s add powered
+execute if block ~1 ~ ~-1 #lespowerables[powered=true] run tag @s add powered
+execute if block ~-1 ~ ~1 #lespowerables[powered=true] run tag @s add powered
 execute if block ~ ~1 ~ redstone_block run tag @s add powered
 execute if block ~ ~2 ~ redstone_block run tag @s add powered
 execute if block ~1 ~ ~ redstone_block run tag @s add powered
@@ -73,26 +33,6 @@ execute if block ~1 ~ ~1 redstone_block run tag @s add powered
 execute if block ~-1 ~ ~-1 redstone_block run tag @s add powered
 execute if block ~1 ~ ~-1 redstone_block run tag @s add powered
 execute if block ~-1 ~ ~1 redstone_block run tag @s add powered
-execute if block ~ ~1 ~ observer[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ observer[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ observer[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ observer[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 observer[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 observer[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 observer[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 observer[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 observer[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 observer[powered=true] run tag @s add powered
-execute if block ~ ~1 ~ #pressure_plates[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ #pressure_plates[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ #pressure_plates[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ #pressure_plates[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 #pressure_plates[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 #pressure_plates[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 #pressure_plates[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 #pressure_plates[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 #pressure_plates[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 #pressure_plates[powered=true] run tag @s add powered
 
 kill @e[type=command_block_minecart]
 
@@ -128,6 +68,7 @@ execute unless items block ~ ~-1 ~ container.24 * run item replace block ~ ~-1 ~
 $data modify storage runner "$(UUID)".selector_input set value ""
 $data modify storage runner "$(UUID)".selector_input set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
+$data modify storage runner "$(UUID)".UUID set value "$(UUID)"
 $execute at @s if items block ~ ~-1 ~ container.11 paper run data modify storage runner "$(UUID)".input set value ""
 $execute at @s if items block ~ ~-1 ~ container.11 paper run data modify storage runner "$(UUID)".input set from block ~ ~-1 ~ Items[{Slot:10b}].components.minecraft:custom_name
 $execute at @s if items block ~ ~-1 ~ container.11 paper if items block ~ ~-1 ~ container.10 writable_book run data modify storage runner "$(UUID)".input set from block ~ ~-1 ~ Items[{Slot:10b}].components."minecraft:writable_book_content".pages[0].raw

@@ -6,7 +6,6 @@ playerlist @a footer set vote? :)
 execute as @e[type=marker,tag=SPAWN] at @s unless block ~ ~-2 ~ test_block[mode=start] run kill @s
 execute as @e[type=marker,tag=SPAWN] at @s unless block ~ ~-3 ~ test_block[mode=start] run kill @s
 execute as @e[type=marker,tag=PLOT] at @s unless block ~ ~ ~ test_block[mode=start] run kill @s
-
 #clear @a #spwneggs[entity_data]
 execute as @a run function code:inv_stuff_pre with entity @s
 
