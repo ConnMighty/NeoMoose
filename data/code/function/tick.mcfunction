@@ -183,3 +183,4 @@ stopsound @a * entity.ender_dragon.death
 #scoreboard players add @e[type=bat,tag=boom,distance=..1000] count 1
 #execute as @e[type=bat,tag=boom] at @s if score @s count matches 1000.. run particle totem_of_undying ~ ~ ~ 1 1 1 .2 50 force @a
 #execute as @e[type=bat,tag=boom] if score @s count matches 1000.. run tp @s ~ ~-500 ~
+# this was for the grand opening ^^^
