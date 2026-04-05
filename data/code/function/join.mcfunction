@@ -23,5 +23,6 @@ $spawnpoint @s $(id)0000 64 0
 $scoreboard players set $$(id) id $(id)
 execute if entity @s[tag=myplot] run gamemode creative
 tellraw @s[tag=myplot] [{italic:true,color:gray,text:"{"},{italic:true,color:yellow,text:"I"},{italic:true,color:gray,text:"} "},{italic:true,color:green,text:"welcome to your plot! check the trigger commands by doing "},{italic:true,color:light_purple,text:"/trigger"},{italic:true,color:green,text:" to see some commands you can run, or settings you can change for your plot!"}]
+#execute if entity @s[tag=myplot] run give @s written_book[written_book_content={author:"",title:"NeoMoose Official Guide!",pages:[{text:"Check triggers while in your own plot to see some commands you can run, or settings you can change for your plot! \n\n(More things will be added here in the future)"}]}]
 
 tag @s remove myplot

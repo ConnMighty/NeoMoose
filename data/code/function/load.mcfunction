@@ -20,14 +20,6 @@ scoreboard objectives add currentplot dummy
 scoreboard objectives add id dummy
 scoreboard objectives setdisplay list id
 
-# neoedit scores
-scoreboard objectives add ne_x1 dummy
-scoreboard objectives add ne_y1 dummy
-scoreboard objectives add ne_z1 dummy
-scoreboard objectives add ne_x2 dummy
-scoreboard objectives add ne_y2 dummy
-scoreboard objectives add ne_z2 dummy
-
 # triggers
 scoreboard objectives add join trigger
 scoreboard objectives add spawn trigger
@@ -38,7 +30,6 @@ scoreboard objectives add myplotsettings trigger
     scoreboard objectives add allow_visits trigger
     scoreboard objectives add allow_visitor_block_interactions trigger
     scoreboard objectives add disableothertriggers trigger
-\
 
 # teams
 team add neomoose
@@ -54,4 +45,4 @@ team modify default color white
 
 # load message
 execute at @a run playsound block.note_block.bit master @a ~ ~ ~ 2 1.3
-tellraw @a { "color": "#49cbff", "text": "NeoMoose Datapack Loaded"}
+tellraw @a {color:"#49cbff",text:"NeoMoose Datapack Loaded"}

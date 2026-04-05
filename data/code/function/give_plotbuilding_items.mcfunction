@@ -2,5 +2,3 @@ scoreboard players reset @s give_plotbuilding_items
 
 give @s bat_spawn_egg[item_model="command_block",item_name="Command Runner Block",lore=[{color:dark_gray,text:"items put into the barrel underneath"},{color:dark_gray,text:"it will determine what commands are run"}],entity_data={id:"block_display",Tags:["runner"],block_state:{Name:"command_block"},transformation:{translation:[-0.5,0,-0.5],left_rotation:{angle:0,axis:[0,0,0]},right_rotation:{angle:0,axis:[0,0,0]},scale:[1,1,1]}}]
 give @s bat_spawn_egg[item_model="test_instance_block",item_name="Chest Auto-Refill Block",lore=[{color:dark_gray,text:"place under a chest or other container"},{color:dark_gray,text:"and it will refill the container with items from"},{color:dark_gray,text:"the barrel underneath the block"}],entity_data={id:"block_display",Tags:["refiller"],block_state:{Name:"test_instance_block"},transformation:{translation:[-0.5,0,-0.5],left_rotation:{angle:0,axis:[0,0,0]},right_rotation:{angle:0,axis:[0,0,0]},scale:[1,1,1]}}]
-give @s barrier
-give @s light

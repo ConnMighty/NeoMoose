@@ -1,10 +1,10 @@
-execute as @a at @s run function code:as_all_players
+execute as @a at @s run function code:tick/as_all_players
 
 # prevent saved hotbar abuse
 execute as @e[type=marker,tag=SPAWN] at @s unless block ~ ~-2 ~ test_block[mode=start] run kill @s
 execute as @e[type=marker,tag=SPAWN] at @s unless block ~ ~-3 ~ test_block[mode=start] run kill @s
 execute as @e[type=marker,tag=PLOT] at @s unless block ~ ~ ~ test_block[mode=start] run kill @s
-execute as @a run function code:inv_stuff_pre with entity @s
+execute as @a run function code:tick/inv_stuff_pre with entity @s
 kill @e[type=command_block_minecart]
 
 # join teams
@@ -14,7 +14,7 @@ team join neomoose ConnMighty
 
 data modify storage join macroend set value ')"],multiline:{max_lines:1,height:17}}],after_action:"close",actions:[{label:"Join",action:{type:"minecraft:dynamic/run_command",template:"/trigger join set $(id)"}}]}'
 execute as @a[scores={use=1..}] store result storage join myid long 1 run scoreboard players get @s id
-execute as @a[scores={use=1..}] run function code:use with storage join
+execute as @a[scores={use=1..}] if items entity @s weapon.* *[custom_data={item:"navigator"}] run function code:use with storage join
 scoreboard players reset @a[scores={use=1..}] use
 
 # join worlds
