@@ -1,4 +1,3 @@
-
 # cooldown
 scoreboard players set $commandrunner_cooldown count 2
 

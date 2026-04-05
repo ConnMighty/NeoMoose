@@ -10,8 +10,6 @@ gamerule doImmediateRespawn true
 gamerule locatorBar false
 gamerule announceAdvancements false
 
-#function code:summon_bat
-
 # scores
 scoreboard objectives add var dummy
 scoreboard objectives add count dummy
@@ -55,5 +53,5 @@ team add default
 team modify default color white
 
 # load message
-execute as @a at @s run playsound block.note_block.bit master @s ~ ~ ~ 2 1.3
+execute at @a run playsound block.note_block.bit master @a ~ ~ ~ 2 1.3
 tellraw @a { "color": "#49cbff", "text": "NeoMoose Datapack Loaded"}
