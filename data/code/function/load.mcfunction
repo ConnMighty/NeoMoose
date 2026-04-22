@@ -11,6 +11,7 @@ gamerule locatorBar false
 gamerule announceAdvancements false
 
 # scores
+scoreboard objectives add fake_cramming dummy
 scoreboard objectives add var dummy
 scoreboard objectives add count dummy
 scoreboard objectives add left custom:minecraft.leave_game
@@ -19,6 +20,8 @@ scoreboard objectives add use used:carrot_on_a_stick
 scoreboard objectives add currentplot dummy
 scoreboard objectives add id dummy
 scoreboard objectives setdisplay list id
+scoreboard objectives add neocoins dummy
+scoreboard objectives modify neocoins displayname {bold:1b,color:gold,text:"NeoCoins"}
 
 # triggers
 scoreboard objectives add join trigger
