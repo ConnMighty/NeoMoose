@@ -53,7 +53,7 @@ item replace block ~ ~1 ~ container.50 from block ~ ~-1 ~ container.50
 item replace block ~ ~1 ~ container.51 from block ~ ~-1 ~ container.51
 item replace block ~ ~1 ~ container.52 from block ~ ~-1 ~ container.52
 item replace block ~ ~1 ~ container.53 from block ~ ~-1 ~ container.53
-execute unless block ~ ~ ~ barrier if block ~ ~-1 ~ barrel run setblock ~ ~-1 ~ air
+execute unless block ~ ~ ~ barrier if block ~ ~-1 ~ barrel run setblock ~ ~-1 ~ air destroy
 execute unless block ~ ~ ~ barrier run kill @s
 
 tp @s ~ ~ ~ 0 0
