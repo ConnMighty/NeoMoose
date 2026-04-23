@@ -23,9 +23,11 @@ execute as @a[scores={join=1..}] run function code:join with storage join
 function code:bedrockensure with storage join
 
 # leaving plot
+execute as @a unless score @s died matches -2147483648..2147483647 run scoreboard players set @s died 0
+
 tag @r[scores={died=0},gamemode=creative] add CHOSEN
-execute as @p[tag=CHOSEN] store result storage join chosenid long 1 run scoreboard players get @s currentplot
-execute as @p[tag=CHOSEN] at @s unless entity @n[type=marker,tag=SPAWN,distance=..1000] run function code:detect_leftplot with storage join
+execute as @r[tag=CHOSEN] store result storage join chosenid long 1 run scoreboard players get @s currentplot
+execute as @r[tag=CHOSEN] at @s unless entity @n[type=marker,tag=SPAWN,distance=..1000] run function code:detect_leftplot with storage join
 tag @a remove CHOSEN
 
 # player ids
