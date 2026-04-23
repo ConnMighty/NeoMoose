@@ -1,2 +1,2 @@
 
-$setblock ~ ~ ~ $(input)
+$setblock ~ ~ ~ $(input){}
