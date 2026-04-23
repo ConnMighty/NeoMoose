@@ -16,7 +16,8 @@ execute as @e[type=#apply_cramming] at @s if score @s fake_cramming matches 10..
 
 # join teams
 team join default @a[team=]
-team join neoadmin @a[tag=is_admin,name=!ConnMighty]
+team join neoadmin @a[tag=is_admin,name=!ConnMighty,name=!Aunn]
+team join NeoBugfinder Aunn
 team join neomoose ConnMighty
 
 data modify storage join macroend set value ')"],multiline:{max_lines:1,height:17}}],after_action:"close",actions:[{label:"Join",action:{type:"minecraft:dynamic/run_command",template:"/trigger join set $(id)"}}]}'

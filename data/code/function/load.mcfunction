@@ -47,6 +47,10 @@ team modify neoadmin color red
 team add default
 team modify default color white
 
+team add NeoBugfinder
+team modify NeoBugfinder prefix [{color:"#89ff57",text:"ɴᴇᴏʙᴜɢꜰɪɴᴅᴇʀ"},{color:dark_gray,text:" | "}]
+team modify NeoBugfinder color green
+
 # load message
 execute at @a run playsound block.note_block.bit master @a ~ ~ ~ 2 1.3
 tellraw @a {color:"#49cbff",text:"NeoMoose Datapack Loaded"}
