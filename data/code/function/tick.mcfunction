@@ -6,6 +6,13 @@ execute as @e[type=marker,tag=SPAWN] at @s unless block ~ ~-3 ~ test_block[mode=
 execute as @e[type=marker,tag=PLOT] at @s unless block ~ ~ ~ test_block[mode=start] run kill @s
 execute as @a run function code:tick/inv_stuff_pre with entity @s
 kill @e[type=command_block_minecart]
+kill @e[type=spawner_minecart]
+
+kill @e[type=ender_pearl]
+stopsound @a * entity.ender_dragon.death
+
+execute as @e[type=#apply_cramming] at @s store result score @s fake_cramming run execute if entity @e[type=#apply_cramming,distance=..3]
+execute as @e[type=#apply_cramming] at @s if score @s fake_cramming matches 10.. run kill @s
 
 # join teams
 team join default @a[team=]
@@ -79,9 +86,3 @@ item replace block 0 34 0 container.5 with gold_ingot[custom_name="Plot owner",l
 item replace block 0 34 0 container.6 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
 item replace block 0 34 0 container.7 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
 
-#stop :sob:
-kill @e[type=ender_pearl]
-stopsound @a * entity.ender_dragon.death
-
-execute as @e[type=#apply_cramming] at @s store result score @s fake_cramming run execute if entity @e[type=#apply_cramming,distance=..3]
-execute as @e[type=#apply_cramming] at @s if score @s fake_cramming matches 10.. run kill @s

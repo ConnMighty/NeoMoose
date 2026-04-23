@@ -9,6 +9,7 @@ gamerule doFireTick false
 gamerule doImmediateRespawn true
 gamerule locatorBar false
 gamerule announceAdvancements false
+gamerule showDeathMessages false
 
 # scores
 scoreboard objectives add fake_cramming dummy
