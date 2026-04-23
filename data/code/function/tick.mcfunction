@@ -66,6 +66,7 @@ item replace block 0 35 0 container.3 with paper[custom_name="sethp",lore=["sets
 item replace block 0 35 0 container.4 with paper[custom_name="tagadd",lore=["adds a tag to the current","entity. the tag is determined","by the command input and can","be any number from 1..99"]]
 item replace block 0 35 0 container.5 with paper[custom_name="tagremove",lore=["removes a tag from the current","entity. the tag is determined","by the command input and can","be any number from 1..99"]]
 item replace block 0 35 0 container.6 with paper[custom_name="summon",lore=["summons an entity. the entity","summoned is determined by","the command input."]]
+item replace block 0 35 0 container.7 with paper[custom_name="setblock",lore=["sets a block. what block gets","placed is determined by","the command input."]]
 
 item replace block 0 34 0 container.0 with bone_meal[custom_name="All players standing on the block"]
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]

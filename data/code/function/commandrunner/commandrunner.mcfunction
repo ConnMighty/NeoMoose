@@ -77,6 +77,22 @@ execute if items block ~ ~-1 ~ container.10 writable_book if items block ~ ~-1 ~
         {color:dark_gray,text:'example use: {nbt:"{NoAI:1b}"}'},\
     ],\
 mode:"replace_all"}
+execute if items block ~ ~-1 ~ container.10 writable_book if items block ~ ~-1 ~ container.11 *[custom_name="setblock"] run item modify block ~ ~-1 ~ container.10 {function:"set_lore",lore:\
+    [\
+        {color:gray,italic:false,text:"Required json tags:"},\
+        "",\
+        {color:gray,italic:false,text:"block"},\
+        {color:dark_gray,text:"block that will be placed"},\
+        "",\
+        {color:gray,italic:false,text:"x"},\
+        "",\
+        {color:gray,italic:false,text:"y"},\
+        "",\
+        {color:gray,italic:false,text:"z"},\
+        "",\
+        {color:dark_gray,text:"(coordinates are all relative)"},\
+    ],\
+mode:"replace_all"}
 
 $data modify storage runner "$(UUID)".UUID set from entity @s UUID
 
