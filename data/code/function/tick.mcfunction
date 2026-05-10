@@ -82,8 +82,8 @@ item replace block 0 34 0 container.0 with bone_meal[custom_name="All players st
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]
 item replace block 0 34 0 container.2 with emerald[custom_name="All players",lore=["! danger selector !"]]
 item replace block 0 34 0 container.3 with leather[custom_name="All entities",lore=["! danger selector !"]]
-item replace block 0 34 0 container.4 with nautilus_shell[custom_name="Nearest player",lore=["! danger selector !"]]
-item replace block 0 34 0 container.5 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
-item replace block 0 34 0 container.6 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
-item replace block 0 34 0 container.7 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
-
+item replace block 0 34 0 container.4 with rabbit_foot[custom_name="All entities of this type"]
+item replace block 0 34 0 container.5 with nautilus_shell[custom_name="Nearest player",lore=["! danger selector !"]]
+item replace block 0 34 0 container.6 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
+item replace block 0 34 0 container.7 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
+item replace block 0 34 0 container.8 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
