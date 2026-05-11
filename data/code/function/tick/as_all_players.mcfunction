@@ -3,6 +3,7 @@ data modify entity @s foodLevel set value 25
 playerlist @s footer set vote? :)
 
 # enable triggers
+scoreboard players enable @s browse
 scoreboard players enable @s join
 scoreboard players enable @s spawn
 
@@ -42,6 +43,24 @@ execute if score @s currentplot = @s id run scoreboard players enable @s allow_v
 execute unless score @s currentplot = @s id run scoreboard players reset @s allow_visitor_block_interactions
 execute if score @s allow_visitor_block_interactions matches 1.. store result storage temp id long 1 run scoreboard players get @s id
 execute if score @s allow_visitor_block_interactions matches 1.. run function code:settings/allow_visitor_block_interactions_switch with storage temp
+
+## edit description
+execute if score @s currentplot = @s id run scoreboard players enable @s edit_desc
+execute unless score @s currentplot = @s id run scoreboard players reset @s edit_desc
+execute if score @s edit_desc matches 1.. store result storage temp id long 1 run scoreboard players get @s id
+execute if score @s edit_desc matches 1.. run function code:settings/edit_desc with storage temp
+
+## edit name
+execute if score @s currentplot = @s id run scoreboard players enable @s edit_name
+execute unless score @s currentplot = @s id run scoreboard players reset @s edit_name
+execute if score @s edit_name matches 1.. store result storage temp id long 1 run scoreboard players get @s id
+execute if score @s edit_name matches 1.. run function code:settings/edit_name with storage temp
+
+## edit icon
+execute if score @s currentplot = @s id run scoreboard players enable @s edit_icon
+execute unless score @s currentplot = @s id run scoreboard players reset @s edit_icon
+execute if score @s edit_icon matches 1.. store result storage temp id long 1 run scoreboard players get @s id
+execute if score @s edit_icon matches 1.. run function code:settings/edit_icon with storage temp
 
 # command runner UI diamonds
 execute if items entity @s player.cursor diamond[item_name="See All Commands"] run inventory @s block 0 35 0 List of All Commands

@@ -12,6 +12,7 @@ gamerule announceAdvancements false
 gamerule showDeathMessages false
 
 # scores
+scoreboard objectives add browser_page dummy
 scoreboard objectives add fake_cramming dummy
 scoreboard objectives add var dummy
 scoreboard objectives add count dummy
@@ -25,6 +26,7 @@ scoreboard objectives add neocoins dummy
 scoreboard objectives modify neocoins displayname {bold:1b,color:gold,text:"NeoCoins"}
 
 # triggers
+scoreboard objectives add browse trigger
 scoreboard objectives add join trigger
 scoreboard objectives add spawn trigger
 scoreboard objectives add gamemode trigger
@@ -34,6 +36,9 @@ scoreboard objectives add myplotsettings trigger
     scoreboard objectives add allow_visits trigger
     scoreboard objectives add allow_visitor_block_interactions trigger
     scoreboard objectives add disableothertriggers trigger
+    scoreboard objectives add edit_desc trigger
+    scoreboard objectives add edit_name trigger
+    scoreboard objectives add edit_icon trigger
 
 # teams
 team add neomoose

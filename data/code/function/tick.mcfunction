@@ -30,6 +30,8 @@ execute as @a[scores={join=1..}] store result storage join id long 1 run scorebo
 execute as @a[scores={join=1..}] run function code:join with storage join
 function code:bedrockensure with storage join
 
+execute as @a[scores={browse=1..}] run function code:use
+
 # leaving plot
 execute as @a unless score @s died matches -2147483648..2147483647 run scoreboard players set @s died 0
 
@@ -92,3 +94,17 @@ item replace block 0 34 0 container.8 with structure_void[custom_name="None",lor
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run tellraw @s [{color:green,text:"Join our discord server "},{color:gold,underlined:1b,text:"here",click_event:{action:"open_url",url:"https://discord.gg/3HYZtKK3Zb"}},{color:green,text:"!"}]
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run playsound entity.arrow.hit_player master @s ~ ~ ~ 2
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction run data remove entity @s interaction
+
+# browser
+execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:left}] run function code:browser/browse_left
+clear @a *[custom_data~{neobrowser:left}]
+
+execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:right}] run function code:browser/browse_right
+clear @a *[custom_data~{neobrowser:right}]
+
+execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:plot}] run function code:browser/join_from_browser
+clear @a *[custom_data~{neobrowser:plot}]
+
+clear @a *[custom_data~{neobrowser:empty}]
+
+execute as @r[tag=!got_initial_browser_item] run function code:browser/items/give_browser_item_setup
