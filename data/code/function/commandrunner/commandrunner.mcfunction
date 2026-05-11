@@ -114,8 +114,8 @@ $execute at @s if items block ~ ~-1 ~ container.11 paper if items block ~ ~-1 ~ 
 $data modify storage runner "$(UUID)".selector_input set value ""
 $execute store result storage runner "$(UUID)".selector_input int 1 run data get block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
-$data modify storage runner "$(UUID)".selector_input_string set value ""
-$data modify storage runner "$(UUID)".selector_input_string set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
+$data modify storage runner "$(UUID)".selector_input_type set value "armor_stand"
+$data modify storage runner "$(UUID)".selector_input_type set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
 
 # run the command

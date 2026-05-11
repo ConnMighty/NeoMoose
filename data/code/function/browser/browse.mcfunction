@@ -7,17 +7,17 @@ scoreboard players operation $browse_math var *= $const_17 var
 scoreboard players remove $browse_math var 17
 
 # navigation arrows
-execute unless score @s browser_page matches 1 run item replace block 0 32 0 container.18 with spectral_arrow[item_name={color:"light_purple",text:"previous page"},custom_data={neobrowser:left}]
-execute if score @s browser_page matches 1 run item replace block 0 32 0 container.18 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.19 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.19 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.20 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.21 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.22 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.23 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.24 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-item replace block 0 32 0 container.25 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty}]
-execute unless score @s browser_page matches 2147483647 run item replace block 0 32 0 container.26 with spectral_arrow[item_name={color:"light_purple",text:"next page"},custom_data={neobrowser:right}]
+execute unless score @s browser_page matches 1 run item replace block 0 32 0 container.18 with spectral_arrow[item_name={color:"light_purple",text:"previous page"},custom_data={neobrowser:left,neoui:true}]
+execute if score @s browser_page matches 1 run item replace block 0 32 0 container.18 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.19 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.19 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.20 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.21 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.22 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.23 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.24 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+item replace block 0 32 0 container.25 with gray_stained_glass_pane[item_name="",custom_data={neobrowser:empty,neoui:true}]
+execute unless score @s browser_page matches 2147483647 run item replace block 0 32 0 container.26 with spectral_arrow[item_name={color:"light_purple",text:"next page"},custom_data={neobrowser:right,neoui:true}]
 
 # plots on this page
 function code:browser/prep_load_slot {slot:0}
@@ -40,4 +40,4 @@ function code:browser/prep_load_slot {slot:16}
 function code:browser/prep_load_slot {slot:17}
 
 # open ui
-inventory @s block 0 32 0 <aqua><b><i><shadow:#70550b>NeoBrowser
+inventory @s block 0 32 0 <b><i>NeoBrowser

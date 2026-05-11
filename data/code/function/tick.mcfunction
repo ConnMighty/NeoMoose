@@ -97,14 +97,22 @@ execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction 
 
 # browser
 execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:left}] run function code:browser/browse_left
-clear @a *[custom_data~{neobrowser:left}]
+execute as @a if items entity @s container.* *[custom_data~{neobrowser:left}] run function code:browser/browse_left
+execute as @a if items entity @s weapon.offhand *[custom_data~{neobrowser:left}] run function code:browser/browse_left
 
 execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:right}] run function code:browser/browse_right
-clear @a *[custom_data~{neobrowser:right}]
+execute as @a if items entity @s container.* *[custom_data~{neobrowser:right}] run function code:browser/browse_right
+execute as @a if items entity @s weapon.offhand *[custom_data~{neobrowser:right}] run function code:browser/browse_right
 
 execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:plot}] run function code:browser/join_from_browser
-clear @a *[custom_data~{neobrowser:plot}]
+execute as @a if items entity @s container.* *[custom_data~{neobrowser:plot}] run function code:browser/browse_same
+execute as @a if items entity @s weapon.offhand *[custom_data~{neobrowser:plot}] run function code:browser/browse_same
 
-clear @a *[custom_data~{neobrowser:empty}]
+execute as @a if items entity @s player.cursor *[custom_data~{neobrowser:empty}] run function code:browser/browse_same
+execute as @a if items entity @s container.* *[custom_data~{neobrowser:empty}] run function code:browser/browse_same
+execute as @a if items entity @s weapon.offhand *[custom_data~{neobrowser:empty}] run function code:browser/browse_same
+
+execute as @a if items entity @s weapon.offhand *[custom_data~{neoui:true}] run item replace entity @s weapon.offhand with air
+clear @a *[custom_data~{neoui:true}]
 
 execute as @r[tag=!got_initial_browser_item] run function code:browser/items/give_browser_item_setup
