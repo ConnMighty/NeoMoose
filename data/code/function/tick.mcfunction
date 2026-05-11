@@ -87,3 +87,8 @@ item replace block 0 34 0 container.5 with nautilus_shell[custom_name="Nearest p
 item replace block 0 34 0 container.6 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
 item replace block 0 34 0 container.7 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
 item replace block 0 34 0 container.8 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
+
+# discord
+execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run tellraw @s [{color:green,text:"Join our discord server "},{color:gold,underlined:1b,text:"here",click_event:{action:"open_url",url:"https://discord.gg/3HYZtKK3Zb"}},{color:green,text:"!"}]
+execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run playsound entity.arrow.hit_player master @s ~ ~ ~ 2
+execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction run data remove entity @s interaction
