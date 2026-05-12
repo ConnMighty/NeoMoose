@@ -12,6 +12,7 @@ gamerule announceAdvancements false
 gamerule showDeathMessages false
 
 # scores
+scoreboard objectives add edit_browser_item_math dummy
 scoreboard objectives add browser_page dummy
 scoreboard objectives add fake_cramming dummy
 scoreboard objectives add var dummy

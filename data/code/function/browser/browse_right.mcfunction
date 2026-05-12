@@ -1,3 +1,5 @@
+clear @s *[custom_data~{neoui:true}]
+
 execute at @s run playsound ui.button.click master @s ~ ~ ~ .3
 
 scoreboard players add @s browser_page 1
