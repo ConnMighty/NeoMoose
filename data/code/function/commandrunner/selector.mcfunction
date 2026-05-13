@@ -12,3 +12,6 @@ $execute if items block ~ ~-1 ~ container.15 emerald run execute as @a[distance=
 $execute if items block ~ ~-1 ~ container.15 bone_meal positioned ~ ~1 ~ run execute as @a[distance=..0.6] at @s run return run function code:commandrunner/commands/$(function) with storage runner "$(UUID)"
 $execute if items block ~ ~-1 ~ container.15 bone positioned ~ ~2 ~ run execute as @a[distance=..0.6] at @s run return run function code:commandrunner/commands/$(function) with storage runner "$(UUID)"
 $execute if items block ~ ~-1 ~ container.15 red_stained_glass_pane positioned ~ ~1 ~ run execute as @a[distance=..0.6] at @s run return run function code:commandrunner/commands/$(function) with storage runner "$(UUID)"
+
+# for debugging
+#$title @p[distance=..5,name=ConnMighty] actionbar [{color:white,text:"selector_input: "},{color:green,text:"$(selector_input)"},{color:white,text:" selector_input_type: "},{color:green,text:"$(selector_input_type)"},{color:white,text:" function: "},{color:green,text:"$(function)"},{color:white,text:" UUID: "},{color:green,text:"$(UUID)"}]

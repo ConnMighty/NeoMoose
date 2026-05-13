@@ -105,17 +105,17 @@ $execute if items block ~ ~-1 ~ container.11 paper[custom_name="tp"] if items bl
 
 # get input
 $data modify storage runner "$(UUID)".UUID set value "$(UUID)"
-$execute at @s if items block ~ ~-1 ~ container.11 paper run data modify storage runner "$(UUID)".input set value ""
-$execute at @s if items block ~ ~-1 ~ container.11 paper run data modify storage runner "$(UUID)".input set from block ~ ~-1 ~ Items[{Slot:10b}].components.minecraft:custom_name
-$execute at @s if items block ~ ~-1 ~ container.11 paper if items block ~ ~-1 ~ container.10 writable_book run data modify storage runner "$(UUID)".input set from block ~ ~-1 ~ Items[{Slot:10b}].components."minecraft:writable_book_content".pages[0].raw
-$execute at @s if items block ~ ~-1 ~ container.11 paper if items block ~ ~-1 ~ container.10 writable_book run function code:commandrunner/make_json_not_string with storage runner "$(UUID)"
+$execute if items block ~ ~-1 ~ container.11 paper run data modify storage runner "$(UUID)".input set value ""
+$execute if items block ~ ~-1 ~ container.11 paper run data modify storage runner "$(UUID)".input set from block ~ ~-1 ~ Items[{Slot:10b}].components.minecraft:custom_name
+$execute if items block ~ ~-1 ~ container.11 paper if items block ~ ~-1 ~ container.10 writable_book run data modify storage runner "$(UUID)".input set from block ~ ~-1 ~ Items[{Slot:10b}].components."minecraft:writable_book_content".pages[0].raw
+$execute if items block ~ ~-1 ~ container.11 paper if items block ~ ~-1 ~ container.10 writable_book run function code:commandrunner/make_json_not_string with storage runner "$(UUID)"
 
 # get selector input
 $data modify storage runner "$(UUID)".selector_input set value ""
 $execute store result storage runner "$(UUID)".selector_input int 1 run data get block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
 $data modify storage runner "$(UUID)".selector_input_type set value "armor_stand"
-$data modify storage runner "$(UUID)".selector_input_type set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
+$execute if data storage runner {"$(UUID)":{selector_input:""}} run data modify storage runner "$(UUID)".selector_input_type set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
 
 # run the command

@@ -7,6 +7,8 @@ $scoreboard players set @s currentplot $(id)
 
 tellraw @s[tag=!myplot] [{italic:true,color:gray,text:"{"},{italic:true,color:yellow,text:"I"},{italic:true,color:gray,text:"} "},{italic:true,color:green,text:"you can use "},{italic:true,color:light_purple,text:"/trigger spawn"},{italic:true,color:green,text:" to return to spawn at any time!"}]
 
+$tellraw @a[scores={currentplot=$(id)}] [{color:gray,text:"["},{color:light_purple,text:"+"},{color:gray,text:"] "},{selector:"@s"}]
+
 gamemode adventure
 $execute if score $defgm_plot_$(id) var matches 1 run gamemode survival
 $execute if score $defgm_plot_$(id) var matches 2 run gamemode creative

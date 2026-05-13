@@ -1,4 +1,6 @@
 # qol
+execute as @a[gamemode=spectator,name=!ConnMighty] run gamemode adventure @s
+
 data modify entity @s foodLevel set value 25
 playerlist @s footer set vote? :)
 

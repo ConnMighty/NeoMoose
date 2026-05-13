@@ -14,6 +14,8 @@ stopsound @a * entity.ender_dragon.death
 execute as @e[type=#apply_cramming] at @s store result score @s fake_cramming run execute if entity @e[type=#apply_cramming,distance=..3]
 execute as @e[type=#apply_cramming] at @s if score @s fake_cramming matches 10.. run kill @s
 
+kill @e[type=item,nbt={Item:{components:{"minecraft:custom_model_data":{strings:["plot item"]}}}}]
+
 # join teams
 team join default @a[team=]
 team join neoadmin @a[tag=is_admin,name=!ConnMighty,name=!Aunn]
@@ -79,6 +81,7 @@ item replace block 0 35 0 container.4 with paper[custom_name="tagadd",lore=["add
 item replace block 0 35 0 container.5 with paper[custom_name="tagremove",lore=["removes a tag from the current","entity. the tag is determined","by the command input and can","be any number from 1..99"]]
 item replace block 0 35 0 container.6 with paper[custom_name="summon",lore=["summons an entity. the entity","summoned is determined by","the command input."]]
 item replace block 0 35 0 container.7 with paper[custom_name="setblock",lore=["sets a block. what block gets","placed is determined by","the command input."]]
+item replace block 0 35 0 container.8 with paper[custom_name="gamemode",lore=["sets the gamemode of a player. what","gamemode is determined by","the command input."]]
 
 item replace block 0 34 0 container.0 with bone_meal[custom_name="All players standing on the block"]
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]
