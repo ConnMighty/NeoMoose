@@ -24,7 +24,7 @@ team join neomoose ConnMighty
 
 data modify storage join macroend set value ')"],multiline:{max_lines:1,height:17}}],after_action:"close",actions:[{label:"Join",action:{type:"minecraft:dynamic/run_command",template:"/trigger join set $(id)"}}]}'
 execute as @a[scores={use=1..}] store result storage join myid long 1 run scoreboard players get @s id
-execute as @a[scores={use=1..}] if items entity @s weapon.* *[custom_data={item:"navigator"}] run function code:use with storage join
+execute as @a[scores={use=1..}] if items entity @s weapon.* *[custom_data={item:"navigator"}] run function code:use
 scoreboard players reset @a[scores={use=1..}] use
 
 # join worlds
