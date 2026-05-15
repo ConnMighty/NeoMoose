@@ -118,4 +118,4 @@ execute as @a if items entity @s weapon.offhand *[custom_data~{neobrowser:empty}
 execute as @a if items entity @s weapon.offhand *[custom_data~{neoui:true}] run item replace entity @s weapon.offhand with air
 clear @a *[custom_data~{neoui:true}]
 
-execute as @r[tag=!got_initial_browser_item] run function code:browser/items/give_browser_item_setup
+execute as @p[tag=!got_initial_browser_item_3] run function code:browser/items/give_browser_item_setup

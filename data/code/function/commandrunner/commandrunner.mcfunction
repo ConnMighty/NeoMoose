@@ -93,6 +93,17 @@ execute if items block ~ ~-1 ~ container.10 writable_book if items block ~ ~-1 ~
         {color:dark_gray,text:"(coordinates are all relative)"},\
     ],\
 mode:"replace_all"}
+execute if items block ~ ~-1 ~ container.10 writable_book if items block ~ ~-1 ~ container.11 *[custom_name="effect"] run item modify block ~ ~-1 ~ container.10 {function:"set_lore",lore:\
+    [\
+        {color:gray,italic:false,text:"Required json tags:"},\
+        "",\
+        {color:gray,italic:false,text:"effect"},\
+        {color:dark_gray,text:"the effect that will be given/removed"},\
+        "",\
+        {color:gray,italic:false,text:"mode"},\
+        {color:dark_gray,text:"(clear/give)"},\
+    ],\
+mode:"replace_all"}
 
 $data modify storage runner "$(UUID)".UUID set from entity @s UUID
 
