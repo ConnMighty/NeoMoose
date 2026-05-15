@@ -2,5 +2,13 @@
     "pack": {
         "pack_format": 88,
         "description": "NeoMoose"
+    },
+    "filter": {
+      "block": [
+        {
+          "namespace": "minecraft",
+          "path": "^advancements?\/(?!recipes?\/)[^\/]+\/?"
+        }
+      ]
     }
-}
+  }
