@@ -95,6 +95,7 @@ item replace block 0 34 0 container.8 with name_tag[custom_name="All entities wi
 item replace block 0 34 0 container.9 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
 
 item replace block 0 33 0 container.0 with comparator[custom_name="if block",lore=["block is determined by the","command input"]]
+item replace block 0 33 0 container.1 with comparator[custom_name="if entity",lore=["entity is determined by the","command input","ex: @n[type=cow,distance=..5]"]]
 
 # discord
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run tellraw @s [{color:green,text:"Join our discord server "},{color:gold,underlined:1b,text:"here",click_event:{action:"open_url",url:"https://discord.gg/3HYZtKK3Zb"}},{color:green,text:"!"}]

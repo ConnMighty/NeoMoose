@@ -39,7 +39,7 @@ execute unless items block ~ ~-1 ~ container.13 red_stained_glass_pane run tag @
 data modify entity @s block_state set value {Name:"command_block"}
 execute if items block ~ ~-1 ~ container.11 comparator run data modify entity @s block_state set value {Name:"chain_command_block"}
 data modify entity @s transformation set value {translation:[-0.501,-0.001,-0.501],left_rotation:{angle:0,axis:[0,0,0]},right_rotation:{angle:0,axis:[0,0,0]},scale:[1.01,1.01,1.01]}
-data modify entity @s brightness set value {block:15,sky:0}
+data modify entity @s brightness set value {block:0,sky:15}
 tp @s ~ ~ ~ 0 0
 
 # commandrunner ui
@@ -148,7 +148,7 @@ $data modify storage runner "$(UUID)".selector_input set value ""
 $execute store result storage runner "$(UUID)".selector_input int 1 run data get block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
 $data modify storage runner "$(UUID)".selector_input_type set value "armor_stand"
-$execute if items block ~ ~-1 ~ container.15 rabbit_foot if data storage runner {"$(UUID)":{selector_input:""}} run data modify storage runner "$(UUID)".selector_input_type set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
+$execute if items block ~ ~-1 ~ container.15 rabbit_foot run data modify storage runner "$(UUID)".selector_input_type set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
 $data modify storage runner "$(UUID)".selector_input_name set value "noone"
 $execute if items block ~ ~-1 ~ container.15 book run data modify storage runner "$(UUID)".selector_input_name set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
