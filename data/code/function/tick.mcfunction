@@ -87,11 +87,14 @@ item replace block 0 34 0 container.0 with bone_meal[custom_name="All players st
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]
 item replace block 0 34 0 container.2 with emerald[custom_name="All players",lore=["! danger selector !"]]
 item replace block 0 34 0 container.3 with leather[custom_name="All entities",lore=["! danger selector !"]]
-item replace block 0 34 0 container.4 with rabbit_foot[custom_name="All entities of this type"]
-item replace block 0 34 0 container.5 with nautilus_shell[custom_name="Nearest player",lore=["! danger selector !"]]
-item replace block 0 34 0 container.6 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
-item replace block 0 34 0 container.7 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
-item replace block 0 34 0 container.8 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
+item replace block 0 34 0 container.4 with rabbit_foot[custom_name="All entities of this type",lore=["(type is determined by the","selector input)"]]
+item replace block 0 34 0 container.5 with book[custom_name="Player with this name",lore=["(name is determined by the","selector input)"]]
+item replace block 0 34 0 container.6 with nautilus_shell[custom_name="Nearest player",lore=["! danger selector !"]]
+item replace block 0 34 0 container.7 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
+item replace block 0 34 0 container.8 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
+item replace block 0 34 0 container.9 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
+
+item replace block 0 33 0 container.0 with comparator[custom_name="if block",lore=["block is determined by the","command input"]]
 
 # discord
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run tellraw @s [{color:green,text:"Join our discord server "},{color:gold,underlined:1b,text:"here",click_event:{action:"open_url",url:"https://discord.gg/3HYZtKK3Zb"}},{color:green,text:"!"}]

@@ -78,6 +78,9 @@ execute if score @s edit_icon matches 1.. store result storage temp id long 1 ru
 execute if score @s edit_icon matches 1.. run function code:settings/edit_icon with storage temp
 
 # command runner UI diamonds
+execute if items entity @s player.cursor diamond[item_name="See All Ifs"] run inventory @s block 0 33 0 List of All Ifs
+clear @s diamond[item_name="See All Ifs"]
+
 execute if items entity @s player.cursor diamond[item_name="See All Commands"] run inventory @s block 0 35 0 List of All Commands
 clear @s diamond[item_name="See All Commands"]
 

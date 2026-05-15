@@ -47,3 +47,5 @@ tellraw @s[tag=myplot] [{italic:true,color:gray,text:"{"},{italic:true,color:yel
 #execute if entity @s[tag=myplot] run give @s written_book[written_book_content={author:"",title:"NeoMoose Official Guide!",pages:[{text:"Check triggers while in your own plot to see some commands you can run, or settings you can change for your plot! \n\n(More things will be added here in the future)"}]}]
 
 tag @s remove myplot
+
+$data modify storage join id set value $(id)
