@@ -49,3 +49,6 @@ tellraw @s[tag=myplot] [{italic:true,color:gray,text:"{"},{italic:true,color:yel
 tag @s remove myplot
 
 $data modify storage join id set value $(id)
+
+$data modify storage browser temp.join_id set value $(id)
+function code:browser/calc_plot_player with storage browser temp

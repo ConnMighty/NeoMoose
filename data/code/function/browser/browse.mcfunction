@@ -5,6 +5,7 @@ scoreboard players set $const_17 var 17
 $scoreboard players set $browse_math var $(page)
 scoreboard players operation $browse_math var *= $const_17 var
 scoreboard players remove $browse_math var 17
+execute unless score @s browser_page matches 1 run scoreboard players add $browse_math var 1
 
 # navigation arrows
 execute unless score @s browser_page matches 1 run item replace block 0 32 0 container.18 with spectral_arrow[item_name={color:"light_purple",text:"previous page"},custom_data={neobrowser:left,neoui:true}]

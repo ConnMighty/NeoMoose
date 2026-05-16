@@ -16,3 +16,7 @@ $execute store result storage browser plots[{join_id:$(id)}].votes int 1 run sco
 
 # add name to voters list
 $data modify storage browser plots[{join_id:$(id)}].voters append value "$(name)"
+
+# re-sort
+data modify storage browser temp.compare set value "votes"
+function code:browser/sort_start

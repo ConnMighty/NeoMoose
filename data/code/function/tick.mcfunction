@@ -123,3 +123,5 @@ execute as @a if items entity @s weapon.offhand *[custom_data~{neoui:true}] run 
 clear @a *[custom_data~{neoui:true}]
 
 execute as @p[tag=!got_initial_browser_item_3] run function code:browser/items/give_browser_item_setup
+
+function code:browser/sort_loop_loop

@@ -18,4 +18,4 @@ $data modify storage browser temp.players set from storage browser plots[$(id)].
 $data modify storage browser temp.owner set from storage browser plots[$(id)].owner
 function code:browser/calc_plot_player with storage browser temp
 
-function code:browser/set_slot_item with storage browser temp
+function code:browser/check_visits_disabled with storage browser temp

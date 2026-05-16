@@ -10,6 +10,8 @@ gamerule doImmediateRespawn true
 gamerule locatorBar false
 gamerule announceAdvancements false
 gamerule showDeathMessages false
+gamerule maxCommandChainLength 2147483647
+gamerule maxCommandForkCount 2147483647
 
 # scores
 scoreboard objectives add visit_math dummy
