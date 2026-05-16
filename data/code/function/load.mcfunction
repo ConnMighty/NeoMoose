@@ -14,6 +14,9 @@ gamerule maxCommandChainLength 2147483647
 gamerule maxCommandForkCount 2147483647
 
 # scores
+scoreboard objectives add contextstorer_state dummy
+scoreboard objectives remove temp_id
+scoreboard objectives add temp_id dummy
 scoreboard objectives add visit_math dummy
 scoreboard objectives add vote_math dummy
 scoreboard objectives add edit_browser_item_math dummy
@@ -27,6 +30,7 @@ scoreboard objectives add use used:carrot_on_a_stick
 scoreboard objectives add currentplot dummy
 scoreboard objectives add id dummy
 scoreboard objectives setdisplay list id
+scoreboard objectives add runner_id dummy
 scoreboard objectives add neocoins dummy
 scoreboard objectives modify neocoins displayname {bold:1b,color:gold,text:"NeoCoins"}
 

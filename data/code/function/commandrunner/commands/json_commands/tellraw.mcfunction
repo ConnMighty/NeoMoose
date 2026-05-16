@@ -1,1 +1,1 @@
-$tellraw @s $(text)
+$tellraw $(selector)[distance=..1000] $(text)

@@ -2,44 +2,12 @@
 scoreboard players set $commandrunner_cooldown count 2
 
 # redstone powering
-tag @s remove powered
-execute if block ~ ~1 ~ redstone_wire unless block ~ ~1 ~ redstone_wire[power=0] run tag @s add powered
-execute if block ~ ~2 ~ redstone_wire unless block ~ ~2 ~ redstone_wire[power=0] run tag @s add powered
-execute if block ~1 ~ ~ redstone_wire unless block ~1 ~ ~ redstone_wire[power=0] run tag @s add powered
-execute if block ~-1 ~ ~ redstone_wire unless block ~-1 ~ ~ redstone_wire[power=0] run tag @s add powered
-execute if block ~ ~ ~1 redstone_wire unless block ~ ~ ~1 redstone_wire[power=0] run tag @s add powered
-execute if block ~ ~ ~-1 redstone_wire unless block ~ ~ ~-1 redstone_wire[power=0] run tag @s add powered
-execute if block ~1 ~ ~1 redstone_wire unless block ~1 ~ ~1 redstone_wire[power=0] run tag @s add powered
-execute if block ~-1 ~ ~-1 redstone_wire unless block ~-1 ~1 ~-1 redstone_wire[power=0] run tag @s add powered
-execute if block ~1 ~ ~-1 redstone_wire unless block ~1 ~ ~-1 redstone_wire[power=0] run tag @s add powered
-execute if block ~-1 ~ ~1 redstone_wire unless block ~-1 ~ ~1 redstone_wire[power=0] run tag @s add powered
-execute if block ~ ~1 ~ #lespowerables[powered=true] run tag @s add powered
-execute if block ~ ~2 ~ #lespowerables[powered=true] run tag @s add powered
-execute if block ~1 ~ ~ #lespowerables[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~ #lespowerables[powered=true] run tag @s add powered
-execute if block ~ ~ ~1 #lespowerables[powered=true] run tag @s add powered
-execute if block ~ ~ ~-1 #lespowerables[powered=true] run tag @s add powered
-execute if block ~1 ~ ~1 #lespowerables[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~-1 #lespowerables[powered=true] run tag @s add powered
-execute if block ~1 ~ ~-1 #lespowerables[powered=true] run tag @s add powered
-execute if block ~-1 ~ ~1 #lespowerables[powered=true] run tag @s add powered
-execute if block ~ ~1 ~ redstone_block run tag @s add powered
-execute if block ~ ~2 ~ redstone_block run tag @s add powered
-execute if block ~1 ~ ~ redstone_block run tag @s add powered
-execute if block ~-1 ~ ~ redstone_block run tag @s add powered
-execute if block ~ ~ ~1 redstone_block run tag @s add powered
-execute if block ~ ~ ~-1 redstone_block run tag @s add powered
-execute if block ~1 ~ ~1 redstone_block run tag @s add powered
-execute if block ~-1 ~ ~-1 redstone_block run tag @s add powered
-execute if block ~1 ~ ~-1 redstone_block run tag @s add powered
-execute if block ~-1 ~ ~1 redstone_block run tag @s add powered
-execute unless items block ~ ~-1 ~ container.13 red_stained_glass_pane run tag @s add powered
+tag @s add powered
+execute if items block ~ ~-1 ~ container.13 red_stained_glass_pane run function code:commandrunner/check_powered
 
 # align and stuff
-data modify entity @s block_state set value {Name:"command_block"}
-execute if items block ~ ~-1 ~ container.11 comparator run data modify entity @s block_state set value {Name:"chain_command_block"}
-data modify entity @s transformation set value {translation:[-0.501,-0.001,-0.501],left_rotation:{angle:0,axis:[0,0,0]},right_rotation:{angle:0,axis:[0,0,0]},scale:[1.01,1.01,1.01]}
-data modify entity @s brightness set value {block:0,sky:15}
+data modify entity @s block_state set value {Name:"command_block",Properties:{facing:"up"}}
+execute if items block ~ ~-1 ~ container.11 comparator run data modify entity @s block_state set value {Name:"chain_command_block",Properties:{facing:"up",conditional:"true"}}
 tp @s ~ ~ ~ 0 0
 
 # commandrunner ui
@@ -132,6 +100,9 @@ execute if items block ~ ~-1 ~ container.10 writable_book if items block ~ ~-1 ~
         {color:gray,italic:false,text:"text"},\
         {color:dark_gray,text:"the text to tellraw"},\
         {color:dark_gray,text:'ex: text:{color:red,text:"red text!"}'},\
+        "",\
+        {color:gray,italic:false,text:"selector"},\
+        {color:dark_gray,text:"(@s/@a/@p/@r/<username>)"},\
     ],\
 mode:"replace_all"}
 
@@ -162,6 +133,10 @@ $execute if items block ~ ~-1 ~ container.15 rabbit_foot run data modify storage
 $data modify storage runner "$(UUID)".selector_input_name set value "noone"
 $execute if items block ~ ~-1 ~ container.15 book run data modify storage runner "$(UUID)".selector_input_name set from block ~ ~-1 ~ Items[{Slot:16b}].components.minecraft:custom_name
 
+$data modify storage runner "$(UUID)".context_input set value "-1"
+$execute store result storage runner "$(UUID)".context_input int 1 run data get entity @s data.context_input
+
+# get path
 $data modify storage runner "$(UUID)".path set value "commands/"
 $execute if items block ~ ~-1 ~ container.10 writable_book run data modify storage runner "$(UUID)".path set value "commands/json_commands/"
 $execute if items block ~ ~-1 ~ container.11 comparator run data modify storage runner "$(UUID)".path set value "if/"

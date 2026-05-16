@@ -12,11 +12,11 @@ kill @e[type=spawner_minecart]
 kill @e[type=ender_pearl]
 stopsound @a * entity.ender_dragon.death
 
-execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..3,type=!item_display,type=!text_display,type=!block_display,type=!marker]
-execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s if score @s fake_cramming matches 20.. run kill @s
+execute as @e[type=!#no_cramming] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..3,type=!item_display,type=!text_display,type=!block_display,type=!marker]
+execute as @e[type=!#no_cramming] at @s if score @s fake_cramming matches 20.. run kill @s
 
-execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..10,type=!item_display,type=!text_display,type=!block_display,type=!marker]
-execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s if score @s fake_cramming matches 50.. run kill @s
+execute as @e[type=!#no_cramming] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..10,type=!item_display,type=!text_display,type=!block_display,type=!marker]
+execute as @e[type=!#no_cramming] at @s if score @s fake_cramming matches 50.. run kill @s
 
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_model_data":{strings:["plot item"]}}}}]
 
@@ -46,9 +46,22 @@ execute as @r[tag=CHOSEN] store result storage join chosenid long 1 run scoreboa
 execute as @r[tag=CHOSEN] at @s unless entity @n[type=marker,tag=SPAWN,distance=..1000] run function code:detect_leftplot with storage join
 tag @a remove CHOSEN
 
-# player ids
-execute as @p unless score @s id matches 0.. run scoreboard players add $id_counter id 1
-execute as @p unless score @s id matches 0.. run scoreboard players operation @s id = $id_counter id
+# ids
+execute as @p[sort=random] unless score @s id matches 0.. run function code:get_id/id
+execute as @n[sort=random] unless score @s temp_id matches 0.. run function code:get_id/temp
+execute as @n[type=block_display,tag=runner,sort=random] unless score @s runner_id matches 0.. run function code:get_id/runner
+
+execute as @p[sort=random] unless score @s id matches 0.. run function code:get_id/id
+execute as @n[sort=random] unless score @s temp_id matches 0.. run function code:get_id/temp
+execute as @n[type=block_display,tag=runner,sort=random] unless score @s runner_id matches 0.. run function code:get_id/runner
+
+execute as @p[sort=random] unless score @s id matches 0.. run function code:get_id/id
+execute as @n[sort=random] unless score @s temp_id matches 0.. run function code:get_id/temp
+execute as @n[type=block_display,tag=runner,sort=random] unless score @s runner_id matches 0.. run function code:get_id/runner
+
+execute as @p[sort=random] unless score @s id matches 0.. run function code:get_id/id
+execute as @n[sort=random] unless score @s temp_id matches 0.. run function code:get_id/temp
+execute as @n[type=block_display,tag=runner,sort=random] unless score @s runner_id matches 0.. run function code:get_id/runner
 
 # chest auto-refiller block
 execute as @a[gamemode=adventure] unless score @s currentplot = @s id run clear @s bat_spawn_egg[item_model="test_instance_block"]
@@ -58,17 +71,15 @@ execute as @e[type=block_display,tag=refiller,tag=!old] run tag @s add old
 execute as @e[type=block_display,tag=refiller] at @s run function code:chestrefiller
 
 # command runner block
+execute as @e[type=block_display,tag=runner,tag=!old] at @s run function code:commandrunner/as_new_runner
+
 execute as @a[gamemode=adventure] unless score @s currentplot = @s id run clear @s bat_spawn_egg[item_model="command_block"]
-execute as @e[type=block_display,tag=runner,tag=!old] at @s run playsound block.stone.place master @a ~ ~ ~
-execute as @e[type=block_display,tag=runner,tag=!old] at @s run setblock ~ ~ ~ barrier
-execute as @e[type=block_display,tag=runner,tag=!old] run tag @s add old
 execute as @e[type=block_display,tag=runner] at @s unless score $commandrunner_cooldown count matches 1.. run function code:commandrunner/commandrunner with entity @s
 scoreboard players remove $commandrunner_cooldown count 1
 execute as @e[type=block_display,tag=runner] at @s positioned ~ ~-1 ~ unless entity @n[type=interaction,distance=..0.1] run summon interaction ~ ~ ~ {width:1.05,height:1.05,Tags:["openhere"]}
 
 execute as @e[type=interaction,tag=openhere] at @s unless block ~ ~ ~ barrel run kill @s
-execute as @e[type=interaction,tag=openhere] at @s if data entity @s interaction on target run inventory @s block ~ ~ ~ Container
-execute as @e[type=interaction,tag=openhere] at @s if data entity @s interaction run data remove entity @s interaction
+execute as @e[type=interaction,tag=openhere] at @s if data entity @s interaction run function code:open_here
 
 clear @a red_stained_glass_pane[item_name="Selector"]
 clear @a red_stained_glass_pane[item_name="Command"]
@@ -88,6 +99,7 @@ item replace block 0 35 0 container.7 with paper[custom_name="setblock",lore=["s
 item replace block 0 35 0 container.8 with paper[custom_name="gamemode",lore=["sets the gamemode of a player. what","gamemode is determined by","the command input."]]
 item replace block 0 35 0 container.9 with paper[custom_name="give",lore=["gives a item to the player.","item is determined by","the command input."]]
 item replace block 0 35 0 container.10 with paper[custom_name="tellraw",lore=["sends a message in chat. the","message is determined by","the command input."]]
+item replace block 0 35 0 container.11 with paper[custom_name="title",lore=["show a title for a player. the","title is determined by","the command input."]]
 
 item replace block 0 34 0 container.0 with bone_meal[custom_name="All players standing on the block"]
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]
@@ -99,9 +111,21 @@ item replace block 0 34 0 container.6 with nautilus_shell[custom_name="Nearest p
 item replace block 0 34 0 container.7 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
 item replace block 0 34 0 container.8 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
 item replace block 0 34 0 container.9 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
+item replace block 0 34 0 container.10 with magenta_glazed_terracotta[custom_name="With context",lore=["(runs the command with inputted","context from a context storer)"]]
 
 item replace block 0 33 0 container.0 with comparator[custom_name="if block",lore=["block is determined by the","command input"]]
 item replace block 0 33 0 container.1 with comparator[custom_name="if entity",lore=["entity is determined by the","command input","ex: @n[type=cow,distance=..5]"]]
+
+
+# context storer block
+execute as @e[type=block_display,tag=contextstorer,tag=!old] at @s run function code:snap
+
+execute as @e[type=block_display,tag=contextstorer] at @s run function code:contextstorer/loop
+
+execute as @e[type=block_display,tag=contextstorer] at @s unless entity @n[type=interaction,distance=..0.1] run summon interaction ~ ~ ~ {width:1.05,height:1.05,Tags:["contextstorer"]}
+execute as @e[type=interaction,tag=contextstorer] at @s unless block ~ ~ ~ barrier run kill @s
+execute as @e[type=interaction,tag=contextstorer] at @s if data entity @s interaction run function code:contextstorer/toggle
+execute as @e[type=interaction,tag=contextstorer] at @s if data entity @s attack run setblock ~ ~ ~ air
 
 # discord
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run tellraw @s [{color:green,text:"Join our discord server "},{color:gold,underlined:1b,text:"here",click_event:{action:"open_url",url:"https://discord.gg/3HYZtKK3Zb"}},{color:green,text:"!"}]
