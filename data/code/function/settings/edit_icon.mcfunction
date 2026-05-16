@@ -1,7 +1,4 @@
 scoreboard players reset @s edit_icon
 
-execute unless items entity @s weapon.offhand writable_book unless items entity @s weapon.mainhand * run return run tellraw @s {color:red,italic:1b,text:"Write the name of an item for your world icon in a book and quill, then hold it in your offhand and run this command again!"}
+execute unless items entity @s weapon.mainhand * run return run tellraw @s {color:red,italic:1b,text:"Hold the item you want to use as the icon in your mainhand"}
 $data modify storage browser plots[{join_id:$(id)}].item set from entity @s SelectedItem.id
-$data modify storage browser plots[{join_id:$(id)}].item set from entity @s equipment.offhand.id
-$data modify storage browser plots[{join_id:$(id)}].item set from entity @s equipment.offhand.components."minecraft:writable_book_content".pages[0].raw
-$data modify storage browser plots[{join_id:$(id)}].item set from entity @s equipment.offhand.components."minecraft:written_book_content".pages[0].raw
