@@ -1,3 +1,4 @@
+
 execute as @a at @s run function code:tick/as_all_players
 
 # prevent saved hotbar abuse
