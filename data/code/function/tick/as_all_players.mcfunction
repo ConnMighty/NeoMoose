@@ -27,6 +27,7 @@ scoreboard players reset @s[scores={left=1..}] left
 execute as @s[tag=!gotnav] run function code:tick/got_nav
 
 execute if entity @n[type=marker,tag=SPAWN,distance=..1000] run gamemode adventure @s[tag=!is_admin]
+execute if entity @n[type=marker,tag=SPAWN,distance=..1000] if score @s currentplot matches 1.. run tag @s remove gotnav
 execute if entity @n[type=marker,tag=SPAWN,distance=..1000] run scoreboard players set @s currentplot -1
 
 # plot tools

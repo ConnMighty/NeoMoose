@@ -11,8 +11,11 @@ kill @e[type=spawner_minecart]
 kill @e[type=ender_pearl]
 stopsound @a * entity.ender_dragon.death
 
-execute as @e[type=#apply_cramming] at @s store result score @s fake_cramming run execute if entity @e[type=#apply_cramming,distance=..3]
-execute as @e[type=#apply_cramming] at @s if score @s fake_cramming matches 10.. run kill @s
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..3,type=!item_display,type=!text_display,type=!block_display,type=!marker]
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s if score @s fake_cramming matches 20.. run kill @s
+
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..10,type=!item_display,type=!text_display,type=!block_display,type=!marker]
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s if score @s fake_cramming matches 50.. run kill @s
 
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_model_data":{strings:["plot item"]}}}}]
 
