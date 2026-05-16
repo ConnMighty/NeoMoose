@@ -10,8 +10,12 @@ gamerule doImmediateRespawn true
 gamerule locatorBar false
 gamerule announceAdvancements false
 gamerule showDeathMessages false
+gamerule maxCommandChainLength 2147483647
+gamerule maxCommandForkCount 2147483647
 
 # scores
+scoreboard objectives add visit_math dummy
+scoreboard objectives add vote_math dummy
 scoreboard objectives add edit_browser_item_math dummy
 scoreboard objectives add browser_page dummy
 scoreboard objectives add fake_cramming dummy
@@ -27,10 +31,12 @@ scoreboard objectives add neocoins dummy
 scoreboard objectives modify neocoins displayname {bold:1b,color:gold,text:"NeoCoins"}
 
 # triggers
+scoreboard objectives add vote trigger
 scoreboard objectives add browse trigger
 scoreboard objectives add join trigger
 scoreboard objectives add spawn trigger
 scoreboard objectives add gamemode trigger
+scoreboard objectives add list_votes trigger
 scoreboard objectives add myplotsettings trigger
     scoreboard objectives add default_visitor_gamemode trigger
     scoreboard objectives add give_plotbuilding_items trigger

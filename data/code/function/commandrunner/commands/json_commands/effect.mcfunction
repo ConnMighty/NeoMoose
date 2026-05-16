@@ -1,0 +1,1 @@
+$effect $(mode) @s $(effect)

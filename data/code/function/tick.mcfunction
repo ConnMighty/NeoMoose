@@ -11,8 +11,11 @@ kill @e[type=spawner_minecart]
 kill @e[type=ender_pearl]
 stopsound @a * entity.ender_dragon.death
 
-execute as @e[type=#apply_cramming] at @s store result score @s fake_cramming run execute if entity @e[type=#apply_cramming,distance=..3]
-execute as @e[type=#apply_cramming] at @s if score @s fake_cramming matches 10.. run kill @s
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..3,type=!item_display,type=!text_display,type=!block_display,type=!marker]
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s if score @s fake_cramming matches 20.. run kill @s
+
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s store result score @s fake_cramming run execute if entity @e[tag=!PLOT,tag=!SPAWN,distance=..10,type=!item_display,type=!text_display,type=!block_display,type=!marker]
+execute as @e[tag=!PLOT,tag=!SPAWN,type=!item_display,type=!text_display,type=!block_display,type=!marker,type=!interaction,type=!player] at @s if score @s fake_cramming matches 50.. run kill @s
 
 kill @e[type=item,nbt={Item:{components:{"minecraft:custom_model_data":{strings:["plot item"]}}}}]
 
@@ -24,7 +27,7 @@ team join neomoose ConnMighty
 
 data modify storage join macroend set value ')"],multiline:{max_lines:1,height:17}}],after_action:"close",actions:[{label:"Join",action:{type:"minecraft:dynamic/run_command",template:"/trigger join set $(id)"}}]}'
 execute as @a[scores={use=1..}] store result storage join myid long 1 run scoreboard players get @s id
-execute as @a[scores={use=1..}] if items entity @s weapon.* *[custom_data={item:"navigator"}] run function code:use with storage join
+execute as @a[scores={use=1..}] if items entity @s weapon.* *[custom_data={item:"navigator"}] run function code:use
 scoreboard players reset @a[scores={use=1..}] use
 
 # join worlds
@@ -88,11 +91,15 @@ item replace block 0 34 0 container.0 with bone_meal[custom_name="All players st
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]
 item replace block 0 34 0 container.2 with emerald[custom_name="All players",lore=["! danger selector !"]]
 item replace block 0 34 0 container.3 with leather[custom_name="All entities",lore=["! danger selector !"]]
-item replace block 0 34 0 container.4 with rabbit_foot[custom_name="All entities of this type"]
-item replace block 0 34 0 container.5 with nautilus_shell[custom_name="Nearest player",lore=["! danger selector !"]]
-item replace block 0 34 0 container.6 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
-item replace block 0 34 0 container.7 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
-item replace block 0 34 0 container.8 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
+item replace block 0 34 0 container.4 with rabbit_foot[custom_name="All entities of this type",lore=["(type is determined by the","selector input)"]]
+item replace block 0 34 0 container.5 with book[custom_name="Player with this name",lore=["(name is determined by the","selector input)"]]
+item replace block 0 34 0 container.6 with nautilus_shell[custom_name="Nearest player",lore=["! danger selector !"]]
+item replace block 0 34 0 container.7 with gold_ingot[custom_name="Plot owner",lore=["! danger selector !"]]
+item replace block 0 34 0 container.8 with name_tag[custom_name="All entities with tag",lore=["(tag is determined by the","selector input)","","! danger selector !"]]
+item replace block 0 34 0 container.9 with structure_void[custom_name="None",lore=["(just runs the command","at the position of the","command runner block)"]]
+
+item replace block 0 33 0 container.0 with comparator[custom_name="if block",lore=["block is determined by the","command input"]]
+item replace block 0 33 0 container.1 with comparator[custom_name="if entity",lore=["entity is determined by the","command input","ex: @n[type=cow,distance=..5]"]]
 
 # discord
 execute as @e[type=interaction,tag=discord] at @s if data entity @s interaction on target run tellraw @s [{color:green,text:"Join our discord server "},{color:gold,underlined:1b,text:"here",click_event:{action:"open_url",url:"https://discord.gg/3HYZtKK3Zb"}},{color:green,text:"!"}]
@@ -119,4 +126,6 @@ execute as @a if items entity @s weapon.offhand *[custom_data~{neobrowser:empty}
 execute as @a if items entity @s weapon.offhand *[custom_data~{neoui:true}] run item replace entity @s weapon.offhand with air
 clear @a *[custom_data~{neoui:true}]
 
-execute as @r[tag=!got_initial_browser_item] run function code:browser/items/give_browser_item_setup
+execute as @p[tag=!got_initial_browser_item_3] run function code:browser/items/give_browser_item_setup
+
+function code:browser/sort_loop_loop

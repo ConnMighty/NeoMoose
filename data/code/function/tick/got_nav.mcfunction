@@ -1,3 +1,10 @@
+function code:reset_plot_players_prep with entity @s
+
+# leave message
+execute store result storage temp leave_message.id int 1 run scoreboard players get @s currentplot
+data modify storage temp leave_message.myname set from entity @s bukkit.lastKnownName
+function code:tick/leave_message with storage temp leave_message
+
 tp @s 0 62 0
 spawnpoint @s 0 62 0
 attribute @s minecraft:block_interaction_range base reset
