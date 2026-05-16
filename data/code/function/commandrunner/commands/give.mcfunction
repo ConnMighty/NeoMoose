@@ -1,1 +1,3 @@
-$give @s[nbt=!{Inventory:[{id:"minecraft:$(input)"}]}] $(input)
+$give @s $(input)
+
+#[nbt=!{Inventory:[{id:"minecraft:$(input)"}]}]

@@ -89,7 +89,6 @@ item replace block 0 35 0 container.8 with paper[custom_name="gamemode",lore=["s
 item replace block 0 35 0 container.9 with paper[custom_name="give",lore=["gives a item to the player.","item is determined by","the command input."]]
 item replace block 0 35 0 container.10 with paper[custom_name="tellraw",lore=["sends a message in chat. the","message is determined by","the command input."]]
 
-
 item replace block 0 34 0 container.0 with bone_meal[custom_name="All players standing on the block"]
 item replace block 0 34 0 container.1 with bone[custom_name="All players standing on the block above this block"]
 item replace block 0 34 0 container.2 with emerald[custom_name="All players",lore=["! danger selector !"]]
