@@ -1,0 +1,1 @@
+$give @s[nbt=!{Inventory:[{id:"minecraft:$(input)"}]}] $(input)
